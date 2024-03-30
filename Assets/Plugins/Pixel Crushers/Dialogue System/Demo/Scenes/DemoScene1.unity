@@ -866,7 +866,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 6f06dd98a5f62894a9f9c0ce7e700682, type: 3}
+      propertyPath: selectAt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6f06dd98a5f62894a9f9c0ce7e700682, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6f06dd98a5f62894a9f9c0ce7e700682, type: 3}
+      propertyPath: inRangeColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6f06dd98a5f62894a9f9c0ce7e700682, type: 3}
+      propertyPath: inRangeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6f06dd98a5f62894a9f9c0ce7e700682, type: 3}
+      propertyPath: inRangeColor.r
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
