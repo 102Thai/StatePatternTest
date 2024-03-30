@@ -1,0 +1,35 @@
+dialogue system for unity:
+tác dụng: có đầy đủ chức năng 1 dialogue cần có
+nhược điểm: khó sử dụng, cần đọc doc và xem video tutorial nhiều
+
+cách sử dụng:
++ cần setup các chức năng cần sử dụng ở tab welcome window như: nếu làm game 2D thì cần bật chế độ 2D mode,
+nếu muốn sử dụng TextmeshPro cho dialogue UI thì cần bật mode TextmeshPro... cách bật: tool>pixel crusher>dialogueSystem>welcom Window
+
++để hiển thị các cuộc hội thoại ta có thể tự tạo mới 1 dialogue UI Manager hoặc có thể sử dụng sẵn các
+template dialogue UI Manager có sẵn của dialogue system và có thể tùy chỉnh hình ảnh, xóa những phần k cần thiết.
+
++để tạo ra các cuộc hội thoại cần tạo 1 dialogueDataBase. đối tượng này sẽ chứa các dữ liệu về actors(người tham gia 1 đoạn hội thoại),
+Quest/item(các nhiệm vụ và thông tin về vật phẩm), variables(các biến sử dụng cho điều kiện hoặc có thể được hiển thị cho 1 thông tin nào đó),
+conversations(các cuộc hội thoại)
+
++cách tạo ra 1 đoạn hội thoại: mở cửa sổ dialogue editor bằng cách right click vào dialogueDataBase 
+hoặc tool>pixelcrusher>dialogueSystem>dialogue editor. mở tab conversations. nhấn nút dấu + để tạo mới 
+1 cuộc hội thoại(cần đặt tên và đặt mô tả cho đoạn hội thoại này để dễ nhớ và dễ sử dụng). click chuộc phải 
+để tạo ra 1 điểm đầu vào có tên Start. click vào Start để tạo ra các node con. 
+các node này sẽ chứa các field như: dialogueText(những dòng chữ sẽ được hiển thị khi nói),
+sequence: các hành động tạo hiệu ứng hoặc điều kiển camera,...) conditions(điều kiện thực hiện câu nói này),
+scripts(dùng để đặt giá trị cho 1 biến(variable) ), event(các event sẽ diễn ra khi node này diễn ra), Actor(người nói), COnversant(người nghe),...
+
++với 1 node có thể tạo ra nhiều node con khác nhau. điều này sẽ giúp rẽ nhánh câu chuyện
+
++khi đã setup 1 đoạn hội thoại xong, cần tạo 1 gameObject có thể là 1 NPC hay 1 object nào đó. 
+object này sẽ cần phải chưa 1 component tên là dialogue system trigger có tác dụng thực hiện 1 hoạt động 
+nào đó khi nó được trigger, có thể thêm điều kiện hoặc không.
+
+*các cách mà 1 dialogue system trigger gồm có: onUse: thực hiện 1 hành động nào đó khi hàm OnUse() được gọi.
+có thể sử dụng sẵn setup của dialogue system để dùng cách trigger này bằng cách thêm component Usable vào 
+gameobject chứa compoent dialogue system trigger. tiếp theo là cần tạo 1 gameObject đặt tên là Player và 
+gán component Selector vào. trong phần selector có field select at chọn mouse position. và như vậy là chỉ cần chỉ chuột vào NPC thì dialogue sẽ hiển thị.
+
+
