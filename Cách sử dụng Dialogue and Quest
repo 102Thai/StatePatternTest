@@ -1,0 +1,63 @@
+dialogue and quest
+hạn chế: không hỗ trợ thực hiện cutscene
+
+cách sử dụng:
+cần tạo ra ít nhất là 1 đối tượng có thể là player hoặc NPC được gán component Actor. 
+trong field data của Actor cần được gán 1 scriptableObject có tên là actor để truyền 
+dữ liệu thông tin về actor cho hệ thống như tên, miêu tả, có phải player không, hình ảnh actor,...
+
+cần có 1 hệ thống UI để hiển thị các conversation, có thể tự tạo mới hoặc có thể sử dụng sẵn hệ 
+thống UI prefab của dialogue and quest, nếu sử dụng sẵn hệ thống này có thể chỉnh sửa lại hình ảnh
+cũng như bỏ đi 1 số phần không cần thiết nếu dự án không cần.
+
+để tạo ra các cuộc đối thoại giữa 1 NPC với người chơi cần tạo 1 ra gameobject(nên đặc tên sao cho có liên quan tới NPC mà player nói chuyện)
+ví dụ: player giao tiếp với NPC 1 thì gameobject này nên đặt nên là TalkWithNPC1. 
+gameobject sẽ cần gán component Narrative Group.
+
++tạo ra các gameobject con trong đối tượng bên trên. các object này sẽ cần gán component Narrative event.
+những gameobject này có thể sẽ chứa các đối tượng con mà được gán các component dialogueMessage(câu nói sẽ được player hoặc NPC nói),
+dialogue Choice(các nút lựa chọn để dẫn tới 1 đoạn hội thoại khác(narrative event)), 
+narrative effect( kích hoạt 1 nhiệm vụ,1 hành động hay 1 sự kiện nào đó)...
+
+để 1 cuộc hội thoại có thể diễn ra thì có thể cần hoặc không 1 hoặc nhiều điều kiện (narrative condition) 
+các điều kiện này có thể được gán cùng với các component: narrative event, dialogue message, dialogue effect.
+
++các cách kích hoạt 1 narrative event:
+trong trường hợp không cần đến narrative condition thì để bắt đầu 1 cuộc hội thoại sẽ có nhiều cách: 
+near actor: 2 đối tượng(player và NPC đi vào phạm vi của nhau có thể là va chạm collider hoặc va chạm giữa raycast.
+enter region: player(actor) va chạm với 1 gameobject có component Region
+leave region: player(actor) ontriggerexit với 1 gameobject có component Region.
+after event: được gọi sau khi 1 event nào đó đã xảy ra.
+manual: gọi thủ công bằng code hoặc được gọi bằng dialogue choice.
+at start: khi mới vào game.
+interact actor: khi đang tương tác với 1 actor khác.
+...
+
++các cách đặt điều kiện bằng narrative condition:
+các tùy chọn đối với narrative condition:
+is Visable: 1 đối tượng gameobject nào đó có đang được hiển thị?
+count scene objects: số lượng 1 object nào đó đang trên scene có bằng số lượng đề ra hay không?
+event triggered: 1 sự kiện(narrative event) nào đó đã được trigger hay chưa?
+quest start: 1 nhiệm vụ nào đã đã được bắt đầu chưa?
+quest active: nv có đang active k?
+quest complete: nv đã được hoàn thành chưa?
+quest failure: nv có thất bại không?
+quest progress: nv có đang được thực hiện không?
+...
+
++các cách setup 1 narrative effect:
+narrative effect là các component có tác dụng kích hoạt 1 hành động nào đó . dưới đây là các hành động:
+Move: di chuyển 1 gameobject đến vị trí của 1 gameobject chứa component Region
+show: active(true) 1 đối tượng gameobject
+hide: active(false) 1 đối tượng gameobject
+instantiate: tạo ra 1 gameobject clone từ 1 gameobject
+destroy: phá hủy 1 gameobject
+startevent: kích hoạt 1 event
+startevent if met: kích hoạt 1 event phù hợp với 1 đk đề ra
+startQuest: bắt đầu nv
+completeQuest: hoàn thành nv
+failQuest: cho nv ở trạng thái thất bạt
+cancelQuest: hủy nv
+playSFX: phát hiệu ứng âm thanh
+playMusic: phát nhạc nền
+stopMusic: dừng nhạc nền
