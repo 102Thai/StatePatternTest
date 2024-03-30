@@ -27,9 +27,23 @@ scripts(dùng để đặt giá trị cho 1 biến(variable) ), event(các event
 object này sẽ cần phải chưa 1 component tên là dialogue system trigger có tác dụng thực hiện 1 hoạt động 
 nào đó khi nó được trigger, có thể thêm điều kiện hoặc không.
 
-*các cách mà 1 dialogue system trigger gồm có: onUse: thực hiện 1 hành động nào đó khi hàm OnUse() được gọi.
+*các cách mà 1 dialogue system trigger gồm có: 
++onUse: thực hiện 1 hành động nào đó khi hàm OnUse() được gọi.
 có thể sử dụng sẵn setup của dialogue system để dùng cách trigger này bằng cách thêm component Usable vào 
 gameobject chứa compoent dialogue system trigger. tiếp theo là cần tạo 1 gameObject đặt tên là Player và 
 gán component Selector vào. trong phần selector có field select at chọn mouse position. và như vậy là chỉ cần chỉ chuột vào NPC thì dialogue sẽ hiển thị.
 
+Onstart: khi bắt đầu game
+OnEnable: khi đối tượng chứa component Dialogue system trigger được enable
+Ondisable: ngược với Onenable
+OnDestroy: khi đối tượng chứa component Dialogue system trigger bị phá hủy.
+OnTrigerEnter/exit: dành cho game 2D. khi chứa component Dialogue system trigger va chạm hoặc rời khởi va chạm với 1 gameObject nào đó.
+OnColisionEnter/exit: tương tự bên trên nhưng dành cho những đối tượng 3D.
+OnBarkStart: khi đối tượng chứa component Dialogue system trigger bắt đầu Bark(sẽ được trình bày bên dưới)
+OnBarkEnd: ngược với bên trên.
+OnConversationStart: khi 1 component Dialogue system trigger khác cùng gán với component Dialogue system trigger có field trigger là OnconversationStart thì khi component kia bắt đầu trigger thì component này cũng sẽ trigger ngay sau đó.
+OnConversationEnd: ngược với bên trên.
+...
+
+Bark là việc 1 NPC hay player nói các câu nói bằng 1 bong bóng chat xuất hiện ở ngay trên đầu NPC hay người chơi.
 
