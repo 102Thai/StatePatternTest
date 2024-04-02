@@ -266,8 +266,9 @@ GameObject:
   m_Component:
   - component: {fileID: 218664596}
   - component: {fileID: 218664595}
+  - component: {fileID: 218664597}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PoolObjectDemo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,6 +306,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218664597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218664594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dc48c641bb39742af066b7a0250f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_note: "d\xF9ng \u0111\u1ED1i t\u01B0\u1EE3ng n\xE0y \u0111\u1EC3 l\xE0m vi\u1EC7c
+    v\u1EDBi asset driver"
 --- !u!1 &285357723
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,8 +799,9 @@ GameObject:
   m_Component:
   - component: {fileID: 999445554}
   - component: {fileID: 999445553}
+  - component: {fileID: 999445555}
   m_Layer: 0
-  m_Name: Test
+  m_Name: TestPoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,6 +836,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &999445555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999445552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dc48c641bb39742af066b7a0250f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_note: "\u0111\u1ED1i t\u01B0\u1EE3ng n\xE0y s\u1EBD tri\u1EC3n khai c\xE1c ph\u01B0\u01A1ng
+    th\u1EE9c c\u1EE7a PoolManager(data driver)"
 --- !u!1 &1092754518
 GameObject:
   m_ObjectHideFlags: 0
