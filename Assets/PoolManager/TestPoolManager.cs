@@ -7,26 +7,27 @@ namespace Assets.PoolObjectTest
     public class TestPoolManager : MonoBehaviour
     {
         [SerializeField] GameObject prefab;
+        [SerializeField] TestPoolManager prefab1;
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            PoolManager.Spawn(prefab);
+            PoolManager.Spawn(prefab1);
         }
 
         [ContextMenu("Despawn")]
         public void Despawn()
         {
-            PoolManager.Despawn(prefab);
+            PoolManager.Despawn(prefab1);
         }
 
         public void DespawnAll()
         {
-            PoolManager.DespawnAll(prefab);
+            PoolManager.DespawnAll(prefab1);
         }
 
         public void Clear()
         {
-            PoolManager.Clear(prefab);
+            PoolManager.Clear(prefab1);
         }
     }
 }

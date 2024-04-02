@@ -26,6 +26,12 @@ public static class PoolManager
         return pool.Get();
     }
 
+    public static T Spawn<T>(T prefab) where T : Component
+    {
+        var clone= Spawn(prefab.gameObject);
+        return clone != null? clone.GetComponent<T>() : null;
+    }
+
     public static void Despawn(GameObject prefab)
     {
         var pool = default(PoolObject);
@@ -34,6 +40,11 @@ public static class PoolManager
             pool = keyValuePairs[prefab];
             pool.Release();
         }
+    }
+
+    public static void Despawn<T>(T obj) where T : Component
+    {
+        Despawn(obj.gameObject);
     }
 
     public static void DespawnAll(GameObject prefab)
@@ -46,6 +57,11 @@ public static class PoolManager
         }
     }
 
+    public static void DespawnAll<T>(T obj) where T : Component
+    {
+        DespawnAll(obj.gameObject);
+    }
+
     public static void Clear(GameObject prefab)
     {
         var pool = default(PoolObject);
@@ -54,6 +70,11 @@ public static class PoolManager
             pool = keyValuePairs[prefab];
             pool.ClearAll();
         }
+    }
+
+    public static void Clear<T>(T obj) where T: Component
+    {
+        Clear(obj.gameObject);
     }
 
 
