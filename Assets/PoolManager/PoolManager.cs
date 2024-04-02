@@ -11,49 +11,89 @@ public static class PoolManager
 
     public static GameObject Spawn(GameObject prefab)
     {
-        var pool = default(PoolObject);
-        if (keyValuePairs.ContainsKey(prefab))
+        if(prefab == null)
         {
-            pool = keyValuePairs[prefab];
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this method");
+            return null;
         }
         else
         {
-            var go = new GameObject($"PoolManager {prefab.name}");
-            pool = go.AddComponent<PoolObject>();
-            pool.prefab = prefab;
-            keyValuePairs.Add(prefab, pool);
+            var pool = default(PoolObject);
+            if (keyValuePairs.ContainsKey(prefab))
+            {
+                pool = keyValuePairs[prefab];
+            }
+            else
+            {
+                var go = new GameObject($"PoolManager {prefab.name}");
+                pool = go.AddComponent<PoolObject>();
+                pool.prefab = prefab;
+                keyValuePairs.Add(prefab, pool);
+            }
+            return pool.Get();
         }
-        return pool.Get();
     }
 
     public static T Spawn<T>(T prefab) where T : Component
     {
-        var clone= Spawn(prefab.gameObject);
-        return clone != null? clone.GetComponent<T>() : null;
+        if (prefab == null)
+        {
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this method");
+            return null;
+        }
+        else
+        {
+            var clone = Spawn(prefab.gameObject);
+            return clone != null ? clone.GetComponent<T>() : null;
+        }
     }
 
     public static void Despawn(GameObject prefab)
     {
-        var pool = default(PoolObject);
-        if (keyValuePairs.ContainsKey(prefab))
+        if (prefab == null)
         {
-            pool = keyValuePairs[prefab];
-            pool.Release();
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this method");
+            return;
+        }
+        else
+        {
+            var pool = default(PoolObject);
+            if (keyValuePairs.ContainsKey(prefab))
+            {
+                pool = keyValuePairs[prefab];
+                pool.Release();
+            }
         }
     }
 
-    public static void Despawn<T>(T obj) where T : Component
+    public static void Despawn<T>(T prefab) where T : Component
     {
-        Despawn(obj.gameObject);
+        if (prefab == null)
+        {
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this method");
+            return;
+        }
+        else
+        {
+            Despawn(prefab.gameObject);
+        }
     }
 
     public static void DespawnAll(GameObject prefab)
     {
-        var pool = default(PoolObject);
-        if (keyValuePairs.ContainsKey(prefab))
+        if (prefab == null)
         {
-            pool = keyValuePairs[prefab];
-            pool.ReleaseAll();
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this method");
+            return;
+        }
+        else
+        {
+            var pool = default(PoolObject);
+            if (keyValuePairs.ContainsKey(prefab))
+            {
+                pool = keyValuePairs[prefab];
+                pool.ReleaseAll();
+            }
         }
     }
 
@@ -64,20 +104,32 @@ public static class PoolManager
 
     public static void Clear(GameObject prefab)
     {
-        var pool = default(PoolObject);
-        if (keyValuePairs.ContainsKey(prefab))
+        if (prefab == null)
         {
-            pool = keyValuePairs[prefab];
-            pool.ClearAll();
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this Spawn method");
+            return;
+        }
+        else
+        {
+            var pool = default(PoolObject);
+            if (keyValuePairs.ContainsKey(prefab))
+            {
+                pool = keyValuePairs[prefab];
+                pool.ClearAll();
+            }
         }
     }
 
-    public static void Clear<T>(T obj) where T: Component
+    public static void Clear<T>(T prefab) where T: Component
     {
-        Clear(obj.gameObject);
+        if (prefab == null)
+        {
+            Debug.LogError("this prefab is null, Make sure you assign a prefab for this Spawn method");
+            return;
+        }
+        else
+        {
+            Clear(prefab.gameObject);
+        }
     }
-
-
-
-
 }
