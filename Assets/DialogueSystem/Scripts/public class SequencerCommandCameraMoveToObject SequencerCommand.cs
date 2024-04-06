@@ -12,7 +12,7 @@ public class SequencerCommandCameraMoveToObject: SequencerCommand
     public void Awake()
     {
         cameraPos = Camera.main.transform.position;
-        targetObject = GetSubject(listener.name);
+        targetObject = GetSubject(1);
 
         cameraPos = targetObject.position;
         cameraPos.z = -10;
